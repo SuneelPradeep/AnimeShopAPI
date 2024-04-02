@@ -6,7 +6,8 @@ require('dotenv').config()
  
 const PORT = process.env.PORT
 const product_routes = require('./routes/products');
-var cors = require('cors')
+var cors = require('cors');
+const { getAllProducts } = require('./controllers/products');
 
 app.use(cors())
 
@@ -17,7 +18,7 @@ app.get('/', (req,res)=>{
 
 // middleware to set routes 
 
-app.use('/api/products', product_routes)
+app.use('/api/products', getAllProducts)
 
 //app.use('/api/singleproduct', product_routes)
 
